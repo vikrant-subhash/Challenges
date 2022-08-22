@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0af75065fcb54e1f6933cb822cd0fdec2971c5242e9ec797b258856b4d9babaf
-size 173
+output private_subnet_ids {
+  value = aws_subnet.private[*].id
+}
+
+output public_subnet_ids {
+  value = aws_subnet.public[*].id
+}
+
+output vpc_id {
+  value = aws_vpc.main.id
+}

@@ -1,3 +1,1273 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:38cfb9d17107f12dfce33d3f3bff09b88eb7a84ad78b79f1a816f5b9791aa86b
-size 45099
+{
+  "version": 4,
+  "terraform_version": "1.2.5",
+  "serial": 147,
+  "lineage": "bcc22c56-df3f-4eb7-46e9-26c476e210ef",
+  "outputs": {},
+  "resources": [
+    {
+      "module": "module.asg",
+      "mode": "data",
+      "type": "aws_ami",
+      "name": "amazonlinux",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "architecture": "x86_64",
+            "arn": "arn:aws:ec2:us-east-1::image/ami-090fa75af13c156b4",
+            "block_device_mappings": [
+              {
+                "device_name": "/dev/xvda",
+                "ebs": {
+                  "delete_on_termination": "true",
+                  "encrypted": "false",
+                  "iops": "0",
+                  "snapshot_id": "snap-093a80cf5f85fc291",
+                  "throughput": "0",
+                  "volume_size": "8",
+                  "volume_type": "gp2"
+                },
+                "no_device": "",
+                "virtual_name": ""
+              }
+            ],
+            "boot_mode": "",
+            "creation_date": "2022-07-22T23:09:56.000Z",
+            "deprecation_time": "2024-07-22T23:09:56.000Z",
+            "description": "Amazon Linux 2 Kernel 5.10 AMI 2.0.20220719.0 x86_64 HVM gp2",
+            "ena_support": true,
+            "executable_users": null,
+            "filter": [
+              {
+                "name": "name",
+                "values": [
+                  "amzn2-ami-kernel-*"
+                ]
+              },
+              {
+                "name": "virtualization-type",
+                "values": [
+                  "hvm"
+                ]
+              }
+            ],
+            "hypervisor": "xen",
+            "id": "ami-090fa75af13c156b4",
+            "image_id": "ami-090fa75af13c156b4",
+            "image_location": "amazon/amzn2-ami-kernel-5.10-hvm-2.0.20220719.0-x86_64-gp2",
+            "image_owner_alias": "amazon",
+            "image_type": "machine",
+            "include_deprecated": false,
+            "kernel_id": "",
+            "most_recent": true,
+            "name": "amzn2-ami-kernel-5.10-hvm-2.0.20220719.0-x86_64-gp2",
+            "name_regex": null,
+            "owner_id": "137112412989",
+            "owners": [
+              "137112412989"
+            ],
+            "platform": "",
+            "platform_details": "Linux/UNIX",
+            "product_codes": [],
+            "public": true,
+            "ramdisk_id": "",
+            "root_device_name": "/dev/xvda",
+            "root_device_type": "ebs",
+            "root_snapshot_id": "snap-093a80cf5f85fc291",
+            "sriov_net_support": "simple",
+            "state": "available",
+            "state_reason": {
+              "code": "UNSET",
+              "message": "UNSET"
+            },
+            "tags": {},
+            "timeouts": null,
+            "tpm_support": "",
+            "usage_operation": "RunInstances",
+            "virtualization_type": "hvm"
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "module": "module.asg",
+      "mode": "managed",
+      "type": "aws_autoscaling_group",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:autoscaling:us-east-1:890363476833:autoScalingGroup:9cef2fe4-1fb8-4fc6-b5c0-eefe9f439ef5:autoScalingGroupName/orlando-20220820171843088500000002",
+            "availability_zones": [
+              "us-east-1a",
+              "us-east-1b"
+            ],
+            "capacity_rebalance": false,
+            "context": "",
+            "default_cooldown": 300,
+            "default_instance_warmup": 0,
+            "desired_capacity": 2,
+            "enabled_metrics": null,
+            "force_delete": false,
+            "force_delete_warm_pool": false,
+            "health_check_grace_period": 300,
+            "health_check_type": "EC2",
+            "id": "orlando-20220820171843088500000002",
+            "initial_lifecycle_hook": [],
+            "instance_refresh": [],
+            "launch_configuration": "orlando-20220820171838281300000001",
+            "launch_template": [],
+            "load_balancers": null,
+            "max_instance_lifetime": 0,
+            "max_size": 4,
+            "metrics_granularity": "1Minute",
+            "min_elb_capacity": null,
+            "min_size": 2,
+            "mixed_instances_policy": [],
+            "name": "orlando-20220820171843088500000002",
+            "name_prefix": "orlando-",
+            "placement_group": "",
+            "protect_from_scale_in": false,
+            "service_linked_role_arn": "arn:aws:iam::890363476833:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling",
+            "suspended_processes": null,
+            "tag": [
+              {
+                "key": "Name",
+                "propagate_at_launch": true,
+                "value": "orlando"
+              }
+            ],
+            "tags": null,
+            "target_group_arns": [
+              "arn:aws:elasticloadbalancing:us-east-1:890363476833:targetgroup/orlando/495c49a8af8f9c15"
+            ],
+            "termination_policies": null,
+            "timeouts": null,
+            "vpc_zone_identifier": [
+              "subnet-00a3a4a1ddcd081f6",
+              "subnet-04d540d9ffc0aab2b"
+            ],
+            "wait_for_capacity_timeout": "10m",
+            "wait_for_elb_capacity": null,
+            "warm_pool": []
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjo2MDAwMDAwMDAwMDAsInVwZGF0ZSI6NjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.asg.aws_iam_instance_profile.main",
+            "module.asg.aws_iam_role.main",
+            "module.asg.aws_launch_configuration.main",
+            "module.asg.aws_security_group.private",
+            "module.asg.data.aws_ami.amazonlinux",
+            "module.lb.aws_lb_target_group.main",
+            "module.lb.aws_security_group.load_balancer",
+            "module.vpc.aws_subnet.private",
+            "module.vpc.aws_vpc.main",
+            "module.vpc.data.aws_availability_zones.available"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.asg",
+      "mode": "managed",
+      "type": "aws_iam_instance_profile",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iam::890363476833:instance-profile/orlando",
+            "create_date": "2022-08-20T17:18:32Z",
+            "id": "orlando",
+            "name": "orlando",
+            "name_prefix": null,
+            "path": "/",
+            "role": "orlando",
+            "tags": null,
+            "tags_all": {},
+            "unique_id": "AIPA46TOMPNQ6JHSIYB3C"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.asg.aws_iam_role.main"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.asg",
+      "mode": "managed",
+      "type": "aws_iam_role",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iam::890363476833:role/orlando",
+            "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ec2.amazonaws.com\"},\"Sid\":\"\"}],\"Version\":\"2012-10-17\"}",
+            "create_date": "2022-08-20T17:18:32Z",
+            "description": "",
+            "force_detach_policies": false,
+            "id": "orlando",
+            "inline_policy": [],
+            "managed_policy_arns": [
+              "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
+            ],
+            "max_session_duration": 3600,
+            "name": "orlando",
+            "name_prefix": "",
+            "path": "/",
+            "permissions_boundary": null,
+            "tags": null,
+            "tags_all": {},
+            "unique_id": "AROA46TOMPNQSHLHG6DO7"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.asg",
+      "mode": "managed",
+      "type": "aws_launch_configuration",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:autoscaling:us-east-1:890363476833:launchConfiguration:66d8b2b2-1d87-4031-9ce5-c2a64360abc0:launchConfigurationName/orlando-20220820171838281300000001",
+            "associate_public_ip_address": false,
+            "ebs_block_device": [],
+            "ebs_optimized": false,
+            "enable_monitoring": true,
+            "ephemeral_block_device": [],
+            "iam_instance_profile": "orlando",
+            "id": "orlando-20220820171838281300000001",
+            "image_id": "ami-090fa75af13c156b4",
+            "instance_type": "t2.micro",
+            "key_name": "",
+            "metadata_options": [],
+            "name": "orlando-20220820171838281300000001",
+            "name_prefix": "orlando-",
+            "placement_tenancy": "",
+            "root_block_device": [],
+            "security_groups": [
+              "sg-001c0b5465377b85b"
+            ],
+            "spot_price": "",
+            "user_data": "c9ca75cd72faa7de3e6106e3a6bf5f765049bccd",
+            "user_data_base64": null,
+            "vpc_classic_link_id": "",
+            "vpc_classic_link_security_groups": null
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.asg.aws_iam_instance_profile.main",
+            "module.asg.aws_iam_role.main",
+            "module.asg.aws_security_group.private",
+            "module.asg.data.aws_ami.amazonlinux",
+            "module.lb.aws_security_group.load_balancer",
+            "module.vpc.aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.asg",
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "private",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:890363476833:security-group/sg-001c0b5465377b85b",
+            "description": "Allow VPC traffic",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-001c0b5465377b85b",
+            "ingress": [
+              {
+                "cidr_blocks": [],
+                "description": "HTTP from load balancer",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [
+                  "sg-07e0e41d84e6db75a"
+                ],
+                "self": false,
+                "to_port": 80
+              }
+            ],
+            "name": "orlando-private",
+            "name_prefix": "",
+            "owner_id": "890363476833",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "orlando-private"
+            },
+            "tags_all": {
+              "Name": "orlando-private"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-0bd11b02fbb1ca8ff"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "module.lb.aws_security_group.load_balancer",
+            "module.vpc.aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.lb",
+      "mode": "managed",
+      "type": "aws_lb",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "access_logs": [
+              {
+                "bucket": "",
+                "enabled": false,
+                "prefix": ""
+              }
+            ],
+            "arn": "arn:aws:elasticloadbalancing:us-east-1:890363476833:loadbalancer/app/orlando/7e5d8108c4841706",
+            "arn_suffix": "app/orlando/7e5d8108c4841706",
+            "customer_owned_ipv4_pool": "",
+            "desync_mitigation_mode": "defensive",
+            "dns_name": "orlando-1023310885.us-east-1.elb.amazonaws.com",
+            "drop_invalid_header_fields": false,
+            "enable_cross_zone_load_balancing": null,
+            "enable_deletion_protection": false,
+            "enable_http2": true,
+            "enable_waf_fail_open": false,
+            "id": "arn:aws:elasticloadbalancing:us-east-1:890363476833:loadbalancer/app/orlando/7e5d8108c4841706",
+            "idle_timeout": 60,
+            "internal": false,
+            "ip_address_type": "ipv4",
+            "load_balancer_type": "application",
+            "name": "orlando",
+            "name_prefix": null,
+            "preserve_host_header": false,
+            "security_groups": [
+              "sg-07e0e41d84e6db75a"
+            ],
+            "subnet_mapping": [
+              {
+                "allocation_id": "",
+                "ipv6_address": "",
+                "outpost_id": "",
+                "private_ipv4_address": "",
+                "subnet_id": "subnet-00b22e6b1a9d6512f"
+              },
+              {
+                "allocation_id": "",
+                "ipv6_address": "",
+                "outpost_id": "",
+                "private_ipv4_address": "",
+                "subnet_id": "subnet-033cf5954ed764e52"
+              }
+            ],
+            "subnets": [
+              "subnet-00b22e6b1a9d6512f",
+              "subnet-033cf5954ed764e52"
+            ],
+            "tags": {
+              "Name": "orlando"
+            },
+            "tags_all": {
+              "Name": "orlando"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-0bd11b02fbb1ca8ff",
+            "zone_id": "Z35SXDOTRQ7X7K"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.lb.aws_security_group.load_balancer",
+            "module.vpc.aws_subnet.public",
+            "module.vpc.aws_vpc.main",
+            "module.vpc.data.aws_availability_zones.available"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.lb",
+      "mode": "managed",
+      "type": "aws_lb_listener",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "alpn_policy": null,
+            "arn": "arn:aws:elasticloadbalancing:us-east-1:890363476833:listener/app/orlando/7e5d8108c4841706/9854fa653bdea270",
+            "certificate_arn": null,
+            "default_action": [
+              {
+                "authenticate_cognito": [],
+                "authenticate_oidc": [],
+                "fixed_response": [],
+                "forward": [],
+                "order": 1,
+                "redirect": [],
+                "target_group_arn": "arn:aws:elasticloadbalancing:us-east-1:890363476833:targetgroup/orlando/495c49a8af8f9c15",
+                "type": "forward"
+              }
+            ],
+            "id": "arn:aws:elasticloadbalancing:us-east-1:890363476833:listener/app/orlando/7e5d8108c4841706/9854fa653bdea270",
+            "load_balancer_arn": "arn:aws:elasticloadbalancing:us-east-1:890363476833:loadbalancer/app/orlando/7e5d8108c4841706",
+            "port": 80,
+            "protocol": "HTTP",
+            "ssl_policy": "",
+            "tags": null,
+            "tags_all": {},
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsicmVhZCI6NjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.lb.aws_lb.main",
+            "module.lb.aws_lb_target_group.main",
+            "module.lb.aws_security_group.load_balancer",
+            "module.vpc.aws_subnet.public",
+            "module.vpc.aws_vpc.main",
+            "module.vpc.data.aws_availability_zones.available"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.lb",
+      "mode": "managed",
+      "type": "aws_lb_target_group",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:elasticloadbalancing:us-east-1:890363476833:targetgroup/orlando/495c49a8af8f9c15",
+            "arn_suffix": "targetgroup/orlando/495c49a8af8f9c15",
+            "connection_termination": false,
+            "deregistration_delay": "300",
+            "health_check": [
+              {
+                "enabled": true,
+                "healthy_threshold": 5,
+                "interval": 30,
+                "matcher": "200",
+                "path": "/",
+                "port": "traffic-port",
+                "protocol": "HTTP",
+                "timeout": 5,
+                "unhealthy_threshold": 2
+              }
+            ],
+            "id": "arn:aws:elasticloadbalancing:us-east-1:890363476833:targetgroup/orlando/495c49a8af8f9c15",
+            "ip_address_type": null,
+            "lambda_multi_value_headers_enabled": false,
+            "load_balancing_algorithm_type": "round_robin",
+            "name": "orlando",
+            "name_prefix": null,
+            "port": 80,
+            "preserve_client_ip": null,
+            "protocol": "HTTP",
+            "protocol_version": "HTTP1",
+            "proxy_protocol_v2": false,
+            "slow_start": 0,
+            "stickiness": [
+              {
+                "cookie_duration": 86400,
+                "cookie_name": "",
+                "enabled": false,
+                "type": "lb_cookie"
+              }
+            ],
+            "tags": null,
+            "tags_all": {},
+            "target_type": "instance",
+            "vpc_id": "vpc-0bd11b02fbb1ca8ff"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.vpc.aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.lb",
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "load_balancer",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:890363476833:security-group/sg-07e0e41d84e6db75a",
+            "description": "Allow port 80 TCP inbound to ELB",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 65535
+              }
+            ],
+            "id": "sg-07e0e41d84e6db75a",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "http to ELB",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              }
+            ],
+            "name": "orlando-load-balancer",
+            "name_prefix": "",
+            "owner_id": "890363476833",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "orlando-load-balancer"
+            },
+            "tags_all": {
+              "Name": "orlando-load-balancer"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-0bd11b02fbb1ca8ff"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "module.vpc.aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vpc",
+      "mode": "data",
+      "type": "aws_availability_zones",
+      "name": "available",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "all_availability_zones": null,
+            "exclude_names": null,
+            "exclude_zone_ids": null,
+            "filter": null,
+            "group_names": [
+              "us-east-1"
+            ],
+            "id": "us-east-1",
+            "names": [
+              "us-east-1a",
+              "us-east-1b",
+              "us-east-1c",
+              "us-east-1d",
+              "us-east-1e",
+              "us-east-1f"
+            ],
+            "state": "available",
+            "timeouts": null,
+            "zone_ids": [
+              "use1-az1",
+              "use1-az2",
+              "use1-az4",
+              "use1-az6",
+              "use1-az3",
+              "use1-az5"
+            ]
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "module": "module.vpc",
+      "mode": "managed",
+      "type": "aws_eip",
+      "name": "nat",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "address": null,
+            "allocation_id": "eipalloc-0332f61828a0f7d27",
+            "associate_with_private_ip": null,
+            "association_id": "",
+            "carrier_ip": "",
+            "customer_owned_ip": "",
+            "customer_owned_ipv4_pool": "",
+            "domain": "vpc",
+            "id": "eipalloc-0332f61828a0f7d27",
+            "instance": "",
+            "network_border_group": "us-east-1",
+            "network_interface": "",
+            "private_dns": null,
+            "private_ip": "",
+            "public_dns": "ec2-44-194-79-10.compute-1.amazonaws.com",
+            "public_ip": "44.194.79.10",
+            "public_ipv4_pool": "amazon",
+            "tags": {
+              "Name": "orlando-nat0"
+            },
+            "tags_all": {
+              "Name": "orlando-nat0"
+            },
+            "timeouts": null,
+            "vpc": true
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjoxODAwMDAwMDAwMDAsInJlYWQiOjkwMDAwMDAwMDAwMCwidXBkYXRlIjozMDAwMDAwMDAwMDB9fQ=="
+        },
+        {
+          "index_key": 1,
+          "schema_version": 0,
+          "attributes": {
+            "address": null,
+            "allocation_id": "eipalloc-06af1ed8b872af281",
+            "associate_with_private_ip": null,
+            "association_id": "",
+            "carrier_ip": "",
+            "customer_owned_ip": "",
+            "customer_owned_ipv4_pool": "",
+            "domain": "vpc",
+            "id": "eipalloc-06af1ed8b872af281",
+            "instance": "",
+            "network_border_group": "us-east-1",
+            "network_interface": "",
+            "private_dns": null,
+            "private_ip": "",
+            "public_dns": "ec2-34-238-130-77.compute-1.amazonaws.com",
+            "public_ip": "34.238.130.77",
+            "public_ipv4_pool": "amazon",
+            "tags": {
+              "Name": "orlando-nat1"
+            },
+            "tags_all": {
+              "Name": "orlando-nat1"
+            },
+            "timeouts": null,
+            "vpc": true
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjoxODAwMDAwMDAwMDAsInJlYWQiOjkwMDAwMDAwMDAwMCwidXBkYXRlIjozMDAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.vpc",
+      "mode": "managed",
+      "type": "aws_internet_gateway",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:890363476833:internet-gateway/igw-083dead2fd734ed9b",
+            "id": "igw-083dead2fd734ed9b",
+            "owner_id": "890363476833",
+            "tags": {
+              "Name": "orlando"
+            },
+            "tags_all": {
+              "Name": "orlando"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-0bd11b02fbb1ca8ff"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.vpc.aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vpc",
+      "mode": "managed",
+      "type": "aws_nat_gateway",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "allocation_id": "eipalloc-0332f61828a0f7d27",
+            "connectivity_type": "public",
+            "id": "nat-084e286e04ad89829",
+            "network_interface_id": "eni-030b4fa6fb0f163d2",
+            "private_ip": "10.0.0.89",
+            "public_ip": "44.194.79.10",
+            "subnet_id": "subnet-033cf5954ed764e52",
+            "tags": {
+              "Name": "orlando-0"
+            },
+            "tags_all": {
+              "Name": "orlando-0"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.vpc.aws_eip.nat",
+            "module.vpc.aws_subnet.public",
+            "module.vpc.aws_vpc.main",
+            "module.vpc.data.aws_availability_zones.available"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 0,
+          "attributes": {
+            "allocation_id": "eipalloc-06af1ed8b872af281",
+            "connectivity_type": "public",
+            "id": "nat-00a66d938b83fadef",
+            "network_interface_id": "eni-05f8c4aa0a4139947",
+            "private_ip": "10.0.1.58",
+            "public_ip": "34.238.130.77",
+            "subnet_id": "subnet-00b22e6b1a9d6512f",
+            "tags": {
+              "Name": "orlando-1"
+            },
+            "tags_all": {
+              "Name": "orlando-1"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.vpc.aws_eip.nat",
+            "module.vpc.aws_subnet.public",
+            "module.vpc.aws_vpc.main",
+            "module.vpc.data.aws_availability_zones.available"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vpc",
+      "mode": "managed",
+      "type": "aws_route_table",
+      "name": "private",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:890363476833:route-table/rtb-0ca017d616e268813",
+            "id": "rtb-0ca017d616e268813",
+            "owner_id": "890363476833",
+            "propagating_vgws": [],
+            "route": [
+              {
+                "carrier_gateway_id": "",
+                "cidr_block": "0.0.0.0/0",
+                "core_network_arn": "",
+                "destination_prefix_list_id": "",
+                "egress_only_gateway_id": "",
+                "gateway_id": "",
+                "instance_id": "",
+                "ipv6_cidr_block": "",
+                "local_gateway_id": "",
+                "nat_gateway_id": "nat-084e286e04ad89829",
+                "network_interface_id": "",
+                "transit_gateway_id": "",
+                "vpc_endpoint_id": "",
+                "vpc_peering_connection_id": ""
+              }
+            ],
+            "tags": {
+              "Name": "orlando-private0"
+            },
+            "tags_all": {
+              "Name": "orlando-private0"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-0bd11b02fbb1ca8ff"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjEyMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.vpc.aws_eip.nat",
+            "module.vpc.aws_nat_gateway.main",
+            "module.vpc.aws_subnet.public",
+            "module.vpc.aws_vpc.main",
+            "module.vpc.data.aws_availability_zones.available"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:890363476833:route-table/rtb-00fbbed9cc9600072",
+            "id": "rtb-00fbbed9cc9600072",
+            "owner_id": "890363476833",
+            "propagating_vgws": [],
+            "route": [
+              {
+                "carrier_gateway_id": "",
+                "cidr_block": "0.0.0.0/0",
+                "core_network_arn": "",
+                "destination_prefix_list_id": "",
+                "egress_only_gateway_id": "",
+                "gateway_id": "",
+                "instance_id": "",
+                "ipv6_cidr_block": "",
+                "local_gateway_id": "",
+                "nat_gateway_id": "nat-00a66d938b83fadef",
+                "network_interface_id": "",
+                "transit_gateway_id": "",
+                "vpc_endpoint_id": "",
+                "vpc_peering_connection_id": ""
+              }
+            ],
+            "tags": {
+              "Name": "orlando-private1"
+            },
+            "tags_all": {
+              "Name": "orlando-private1"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-0bd11b02fbb1ca8ff"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjEyMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.vpc.aws_eip.nat",
+            "module.vpc.aws_nat_gateway.main",
+            "module.vpc.aws_subnet.public",
+            "module.vpc.aws_vpc.main",
+            "module.vpc.data.aws_availability_zones.available"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vpc",
+      "mode": "managed",
+      "type": "aws_route_table",
+      "name": "public",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:890363476833:route-table/rtb-00ce317e46da01861",
+            "id": "rtb-00ce317e46da01861",
+            "owner_id": "890363476833",
+            "propagating_vgws": [],
+            "route": [
+              {
+                "carrier_gateway_id": "",
+                "cidr_block": "0.0.0.0/0",
+                "core_network_arn": "",
+                "destination_prefix_list_id": "",
+                "egress_only_gateway_id": "",
+                "gateway_id": "igw-083dead2fd734ed9b",
+                "instance_id": "",
+                "ipv6_cidr_block": "",
+                "local_gateway_id": "",
+                "nat_gateway_id": "",
+                "network_interface_id": "",
+                "transit_gateway_id": "",
+                "vpc_endpoint_id": "",
+                "vpc_peering_connection_id": ""
+              }
+            ],
+            "tags": {
+              "Name": "orlando-public"
+            },
+            "tags_all": {
+              "Name": "orlando-public"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-0bd11b02fbb1ca8ff"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjEyMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.vpc.aws_internet_gateway.main",
+            "module.vpc.aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vpc",
+      "mode": "managed",
+      "type": "aws_route_table_association",
+      "name": "private",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "gateway_id": "",
+            "id": "rtbassoc-0924eff9c40c2c8ac",
+            "route_table_id": "rtb-0ca017d616e268813",
+            "subnet_id": "subnet-04d540d9ffc0aab2b"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.vpc.aws_eip.nat",
+            "module.vpc.aws_nat_gateway.main",
+            "module.vpc.aws_route_table.private",
+            "module.vpc.aws_subnet.private",
+            "module.vpc.aws_subnet.public",
+            "module.vpc.aws_vpc.main",
+            "module.vpc.data.aws_availability_zones.available"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 0,
+          "attributes": {
+            "gateway_id": "",
+            "id": "rtbassoc-0f12d6a5e7598e5db",
+            "route_table_id": "rtb-00fbbed9cc9600072",
+            "subnet_id": "subnet-00a3a4a1ddcd081f6"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.vpc.aws_eip.nat",
+            "module.vpc.aws_nat_gateway.main",
+            "module.vpc.aws_route_table.private",
+            "module.vpc.aws_subnet.private",
+            "module.vpc.aws_subnet.public",
+            "module.vpc.aws_vpc.main",
+            "module.vpc.data.aws_availability_zones.available"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vpc",
+      "mode": "managed",
+      "type": "aws_route_table_association",
+      "name": "public",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "gateway_id": "",
+            "id": "rtbassoc-002f9f5a13eef12d8",
+            "route_table_id": "rtb-00ce317e46da01861",
+            "subnet_id": "subnet-033cf5954ed764e52"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.vpc.aws_internet_gateway.main",
+            "module.vpc.aws_route_table.public",
+            "module.vpc.aws_subnet.public",
+            "module.vpc.aws_vpc.main",
+            "module.vpc.data.aws_availability_zones.available"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 0,
+          "attributes": {
+            "gateway_id": "",
+            "id": "rtbassoc-01b005337ed779982",
+            "route_table_id": "rtb-00ce317e46da01861",
+            "subnet_id": "subnet-00b22e6b1a9d6512f"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.vpc.aws_internet_gateway.main",
+            "module.vpc.aws_route_table.public",
+            "module.vpc.aws_subnet.public",
+            "module.vpc.aws_vpc.main",
+            "module.vpc.data.aws_availability_zones.available"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vpc",
+      "mode": "managed",
+      "type": "aws_subnet",
+      "name": "private",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:890363476833:subnet/subnet-04d540d9ffc0aab2b",
+            "assign_ipv6_address_on_creation": false,
+            "availability_zone": "us-east-1a",
+            "availability_zone_id": "use1-az1",
+            "cidr_block": "10.0.2.0/24",
+            "customer_owned_ipv4_pool": "",
+            "enable_dns64": false,
+            "enable_resource_name_dns_a_record_on_launch": false,
+            "enable_resource_name_dns_aaaa_record_on_launch": false,
+            "id": "subnet-04d540d9ffc0aab2b",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_association_id": "",
+            "ipv6_native": false,
+            "map_customer_owned_ip_on_launch": false,
+            "map_public_ip_on_launch": false,
+            "outpost_arn": "",
+            "owner_id": "890363476833",
+            "private_dns_hostname_type_on_launch": "ip-name",
+            "tags": {
+              "Name": "orlando-private0"
+            },
+            "tags_all": {
+              "Name": "orlando-private0"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-0bd11b02fbb1ca8ff"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "module.vpc.aws_vpc.main",
+            "module.vpc.data.aws_availability_zones.available"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:890363476833:subnet/subnet-00a3a4a1ddcd081f6",
+            "assign_ipv6_address_on_creation": false,
+            "availability_zone": "us-east-1b",
+            "availability_zone_id": "use1-az2",
+            "cidr_block": "10.0.3.0/24",
+            "customer_owned_ipv4_pool": "",
+            "enable_dns64": false,
+            "enable_resource_name_dns_a_record_on_launch": false,
+            "enable_resource_name_dns_aaaa_record_on_launch": false,
+            "id": "subnet-00a3a4a1ddcd081f6",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_association_id": "",
+            "ipv6_native": false,
+            "map_customer_owned_ip_on_launch": false,
+            "map_public_ip_on_launch": false,
+            "outpost_arn": "",
+            "owner_id": "890363476833",
+            "private_dns_hostname_type_on_launch": "ip-name",
+            "tags": {
+              "Name": "orlando-private1"
+            },
+            "tags_all": {
+              "Name": "orlando-private1"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-0bd11b02fbb1ca8ff"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "module.vpc.aws_vpc.main",
+            "module.vpc.data.aws_availability_zones.available"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vpc",
+      "mode": "managed",
+      "type": "aws_subnet",
+      "name": "public",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:890363476833:subnet/subnet-033cf5954ed764e52",
+            "assign_ipv6_address_on_creation": false,
+            "availability_zone": "us-east-1a",
+            "availability_zone_id": "use1-az1",
+            "cidr_block": "10.0.0.0/24",
+            "customer_owned_ipv4_pool": "",
+            "enable_dns64": false,
+            "enable_resource_name_dns_a_record_on_launch": false,
+            "enable_resource_name_dns_aaaa_record_on_launch": false,
+            "id": "subnet-033cf5954ed764e52",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_association_id": "",
+            "ipv6_native": false,
+            "map_customer_owned_ip_on_launch": false,
+            "map_public_ip_on_launch": false,
+            "outpost_arn": "",
+            "owner_id": "890363476833",
+            "private_dns_hostname_type_on_launch": "ip-name",
+            "tags": {
+              "Name": "orlando-public0"
+            },
+            "tags_all": {
+              "Name": "orlando-public0"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-0bd11b02fbb1ca8ff"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "module.vpc.aws_vpc.main",
+            "module.vpc.data.aws_availability_zones.available"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:890363476833:subnet/subnet-00b22e6b1a9d6512f",
+            "assign_ipv6_address_on_creation": false,
+            "availability_zone": "us-east-1b",
+            "availability_zone_id": "use1-az2",
+            "cidr_block": "10.0.1.0/24",
+            "customer_owned_ipv4_pool": "",
+            "enable_dns64": false,
+            "enable_resource_name_dns_a_record_on_launch": false,
+            "enable_resource_name_dns_aaaa_record_on_launch": false,
+            "id": "subnet-00b22e6b1a9d6512f",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_association_id": "",
+            "ipv6_native": false,
+            "map_customer_owned_ip_on_launch": false,
+            "map_public_ip_on_launch": false,
+            "outpost_arn": "",
+            "owner_id": "890363476833",
+            "private_dns_hostname_type_on_launch": "ip-name",
+            "tags": {
+              "Name": "orlando-public1"
+            },
+            "tags_all": {
+              "Name": "orlando-public1"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-0bd11b02fbb1ca8ff"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "module.vpc.aws_vpc.main",
+            "module.vpc.data.aws_availability_zones.available"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vpc",
+      "mode": "managed",
+      "type": "aws_vpc",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:890363476833:vpc/vpc-0bd11b02fbb1ca8ff",
+            "assign_generated_ipv6_cidr_block": false,
+            "cidr_block": "10.0.0.0/16",
+            "default_network_acl_id": "acl-07d4f724f49577757",
+            "default_route_table_id": "rtb-0e90e8f8675e3e616",
+            "default_security_group_id": "sg-0304fd795bbdaf241",
+            "dhcp_options_id": "dopt-aae8fcd0",
+            "enable_classiclink": false,
+            "enable_classiclink_dns_support": false,
+            "enable_dns_hostnames": false,
+            "enable_dns_support": true,
+            "id": "vpc-0bd11b02fbb1ca8ff",
+            "instance_tenancy": "default",
+            "ipv4_ipam_pool_id": null,
+            "ipv4_netmask_length": null,
+            "ipv6_association_id": "",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_network_border_group": "",
+            "ipv6_ipam_pool_id": "",
+            "ipv6_netmask_length": 0,
+            "main_route_table_id": "rtb-0e90e8f8675e3e616",
+            "owner_id": "890363476833",
+            "tags": {
+              "Name": "orlando"
+            },
+            "tags_all": {
+              "Name": "orlando"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    }
+  ]
+}

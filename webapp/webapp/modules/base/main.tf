@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b2ace330a054225136116b7e43687e88effb2a31b7b65e78687674fdac4ae5bd
-size 702
+module vpc {
+  source = "../vpc"
+
+  env_code     = var.env_code
+  vpc_cidr     = var.vpc_cidr
+  private_cidr = var.private_cidr
+  public_cidr  = var.public_cidr
+  privatedb_cidr = var.privatedb_cidr
+}
+
+module lb {
+  source = "../lb"
+
+  env_code          = var.env_code
+  public_subnet_ids = module.vpc.public_subnet_ids
+  vpc_id            = module.vpc.vpc_id
+
+  depends_on = [
+    module.vpc
+  ]
+}
+
+module asg {
+  source = "../asg"
+
+  env_code           = var.env_code
+  private_subnet_ids = module.vpc.private_subnet_ids
+  vpc_id             = module.vpc.vpc_id
+  load_balancer_sg   = module.lb.load_balancer_sg
+  target_group_arn   = module.lb.target_group_arn
+
+  depends_on = [
+    module.lb
+  ]
+}
