@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c32ca96e00003583d211eacf9ae106d044620be29aec98ea144e169586d9d6f4
-size 185
+env_code = "dev"
+
+vpc_cidr = "10.0.0.0/16"
+
+public_cidr = ["10.0.0.0/24", "10.0.1.0/24"]
+
+private_cidr = ["10.0.2.0/24", "10.0.3.0/24"]
+
+privatedb_cidr = ["10.0.4.0/24", "10.0.5.0/24"]
