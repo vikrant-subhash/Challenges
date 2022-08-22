@@ -1,3 +1,3 @@
-webapp/webapp folder contains : Challenge 1 details
-Ec2Metada Script contains : challenge 2 details
-Python Falt Dictionary Contains: Challenge 3 details
+webapp/webapp folder contains Challenge 1 details ::
+Ec2Metada Script contains Challenge 2 details ::
+python_flat_dict_script Folder Contains Challenge 3 details
